@@ -1,0 +1,13 @@
+type Query {
+  hello: String
+  me: User
+  user(id: ID!): User
+  users(
+    where: UserWhereInput
+    orderBy: UserOrderByInput
+    page: Int
+    limit: Int
+  ): UserConnection!
+  checkRecoverCode(id: ID!, recover_code: String!): Response!
+
+}
