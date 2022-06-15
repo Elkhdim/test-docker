@@ -1,0 +1,37 @@
+version: '3'
+services:
+    be:
+      build:
+        context: .
+        dockerfile: ../back/Dockerfile
+      image: be-app
+      container_name: be-app
+      restart: always
+      ports:
+        - "3011:8080"
+      volumes:
+        - .:/home/node/app
+        - node_modules:/home/node/app/node_modules
+      networks:
+        - app-network
+    fe:
+      build:
+        context: .
+        dockerfile: ../front/whatsapp/Dockerfile
+      image: fe-app
+      container_name: fe-app
+      restart: always
+      ports:
+        - "3015:8080"
+      volumes:
+        - .:/home/node/app
+        - node_modules:/home/node/app/node_modules
+      networks:
+        - app-network
+
+networks:
+  app-network:
+    driver: bridge
+
+volumes:
+  node_modules:
