@@ -9,7 +9,7 @@ function UpdateProduct(props:any) {
 }
 const mapStateToProps=(state:any)=>{
     return {
-        prod:state.prod.products
+        prod:state.prod.all_products
     }
 }
 export default connect(mapStateToProps)(UpdateProduct) 

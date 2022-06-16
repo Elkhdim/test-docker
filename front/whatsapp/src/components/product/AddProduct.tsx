@@ -114,7 +114,7 @@ const mapDispatchToProps = (dispatch: any) => {
   return {
     SAVE_PRODUCT: (products:any) => {
       dispatch({
-        type: "All_PRODUCT",
+        type: "All_PRODUCT_USER",
         products:products
       });
     },

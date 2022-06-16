@@ -20,6 +20,10 @@ router.get('/:id',async (req,res)=>{
     const products= await Product.find({id_User:req.params.id})
     res.send(products)
 })
+router.get('/all/:id',async (req,res)=>{ 
+  const products= await Product.find({id_User: { $ne: req.params.id } })
+  res.send(products)  
+})
 
 router.post('/add/:id', upload.single('image'),async (req,res)=>{
     const productExist = await Product.findOne({id_User:req.params.id, name: req.body.name });
